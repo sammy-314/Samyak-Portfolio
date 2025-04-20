@@ -3,109 +3,90 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 12 90% 60%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 240 10% 3.9%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+:root {
+  --neon-purple: #9b87f5;
+  --neon-orange: #F97316;
+  --neon-teal: #5eead4;
+  --neon-blue: #38bdf8;
+  --neon-pink: #ec4899;
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
-  }
-  
-  ::selection {
-    @apply bg-neon-teal text-black;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
+    @apply bg-black text-white;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-black/40 backdrop-blur-xl border border-white/10 shadow-lg;
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
   }
-  
+
   .neon-border {
-    @apply relative rounded-lg overflow-hidden;
+    @apply border border-transparent relative;
+    background: linear-gradient(to right, black, black),
+      linear-gradient(to right, var(--neon-purple), var(--neon-teal));
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
   }
-  
-  .neon-border::before {
-    content: "";
-    @apply absolute inset-0 p-[2px] rounded-lg bg-gradient-to-r from-neon-purple via-neon-teal to-neon-orange animate-gradient-x;
-    -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box, 
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-  }
-  
-  .tech-icon {
-    @apply w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110;
-  }
-  
+
   .section-heading {
-    @apply text-2xl sm:text-3xl font-bold mb-6 inline-block relative;
+    @apply text-3xl font-bold relative inline-block mb-10;
   }
-  
+
   .section-heading::after {
     content: "";
-    @apply absolute left-0 -bottom-2 h-1 w-2/3 bg-gradient-to-r from-neon-purple to-neon-teal rounded-full;
+    @apply block w-full h-1 mt-1 bg-gradient-to-r from-neon-purple to-neon-teal rounded;
+  }
+
+  .tech-icon {
+    @apply flex justify-center items-center w-20 h-20 rounded-lg transition-transform hover:scale-110 hover:-translate-y-1 cursor-pointer relative;
   }
 }
 
-::-webkit-scrollbar {
-  width: 6px;
+/* Animation keyframes */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-::-webkit-scrollbar-track {
-  @apply bg-black/20;
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-gradient-to-b from-neon-teal to-neon-purple rounded-full;
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fade-in 0.5s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease forwards;
 }
