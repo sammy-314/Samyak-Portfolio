@@ -1,4 +1,31 @@
-# Welcome to your Lovable project
+# Portfolio Website
+
+This is a personal portfolio website built with modern web technologies.
+
+## Getting Started
+
+To run this project locally:
+
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Start the development server with `npm run dev`
+
+## Deployment
+
+To deploy this website:
+
+1. Build the project with `npm run build`
+2. Deploy the contents of the `dist` directory to your hosting provider of choice
+
+## Custom Domain
+
+To set up a custom domain:
+
+1. Purchase a domain from your preferred domain registrar
+2. Configure your domain's DNS settings to point to your hosting provider
+3. Set up SSL certificates for secure HTTPS connections
+
+For more information about deployment and domain setup, refer to your hosting provider's documentation.
 
 ## Project info
 
