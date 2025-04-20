@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { 
   Github, 
@@ -125,6 +126,14 @@ const Index = () => {
             title="Contact"
           >
             <Mail size={20} />
+          </button>
+
+          <button 
+            onClick={() => scrollToSection('database')}
+            className={`p-3 rounded-lg transition-colors ${activeSection === 'database' ? 'bg-white/10 text-neon-teal' : 'hover:bg-white/5'}`}
+            title="Database"
+          >
+            <Database size={20} />
           </button>
         </div>
         
@@ -288,4 +297,196 @@ const Index = () => {
                   
                   <TechIcon name="React.js" color="#61DAFB">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#61DAFB" width="28" height="28">
-                      <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405
+                      <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405.927-.676 1.947-.2-.392-.41-.783-.635-1.174-.225-.397-.465-.783-.704-1.16zm-3.635 3.751l.348-.089c.264-.067.531-.124.798-.17a10.51 10.51 0 0 0-.318-.544 9.65 9.65 0 0 0-.347-.548c-.128.206-.264.417-.393.629-.125.217-.237.431-.346.643l.258.079zm-1.674-.324c.213-.016.422-.031.632-.042.207-.01.418-.018.631-.018.213 0 .425.006.633.018.217.01.417.025.617.042a11.36 11.36 0 0 0-.925-.804 11.17 11.17 0 0 0-.931-.778c-.32.256-.635.518-.939.793-.306.276-.607.562-.908.856.293-.012.59-.03.893-.044.3-.012.588-.022.877-.023zm3.092 1.1c.156.292.303.591.442.9.143.306.28.619.409.938a13.746 13.746 0 0 0 .628-1.161 13.87 13.87 0 0 0 .596-1.212 13.94 13.94 0 0 0-.607-.099 13.38 13.38 0 0 0-.633-.059c-.307 0-.612.015-.909.048-.3.03-.611.073-.917.134.165.193.327.395.486.605.16.213.32.425.495.636zm-4.603.386c.17-.21.332-.412.49-.61.16-.199.32-.402.48-.595-.306-.061-.618-.104-.917-.134a11.62 11.62 0 0 0-.922-.048c-.219.001-.435.014-.652.033-.22.019-.425.049-.633.086.182.392.381.778.597 1.158.22.379.446.758.682 1.134l.09-.183c.15-.304.296-.603.435-.89zm2.241 2.433c.129-.205.272-.407.415-.605l.44-.59c-.299.03-.6.053-.901.079-.3.023-.602.039-.905.039-.319 0-.636-.018-.95-.048-.315-.03-.639-.076-.963-.138.287.378.577.751.904 1.111.326.36.66.704 1.011 1.036.175-.186.349-.379.516-.579.168-.202.33-.405.492-.615zm-2.09.94l.584-1.68a13.506 13.506 0 0 0-.916-.277 12.91 12.91 0 0 0-.905-.193c.045.348.13.695.233 1.04.103.342.224.683.365 1.019.358-.15.718-.296 1.079-.443l-.441-1.136zm3.09-1.68l.001-.001-.001.001zm-3.09 1.68l.001-.001-.001.001zm3.09-1.68l-.44 1.136c.36.147.72.293 1.078.443.141-.336.262-.677.366-1.019a6.62 6.62 0 0 0 .233-1.04c-.292.054-.596.122-.907.193-.309.073-.616.17-.916.277l-.585 1.68zm.88-3.17a14.8 14.8 0 0 1-1.014-.933c-.337-.341-.654-.72-.923-1.121-.269.401-.586.78-.923 1.121a14.8 14.8 0 0 1-1.014.933c.294.319.598.629.916.923.321.292.66.559 1.021.802.361-.243.701-.51 1.021-.802.318-.294.622-.604.916-.923zm.729-5.32v.002l-.002-.002zm-5.277 0l.002.002-.002-.002z"/>
+                    </svg>
+                  </TechIcon>
+                </div>
+              </div>
+
+              <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                <h3 className="text-xl font-bold mb-4 text-neon-teal">Backend & Database</h3>
+                <div className="flex flex-wrap gap-4">
+                  <TechIcon name="Supabase" color="#3ECF8E">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3ECF8E" width="28" height="28">
+                      <path d="M21.362 9.354H12V.396a.396.396 0 0 0-.716-.233L2.203 12.424c-.192.263-.044.618.233.618h9.363v8.959a.396.396 0 0 0 .716.233l9.082-12.26c.192-.264.043-.62-.233-.62zM12 12.5H4.06L12 2.426V12.5zm0 9.075l-7.94-10.075H12v10.075z"/>
+                    </svg>
+                  </TechIcon>
+                  
+                  <TechIcon name="Node.js" color="#339933">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#339933" width="28" height="28">
+                      <path d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M18.14,13.149 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C16.56,16.163,18.14,15.057,18.14,13.149z"/>
+                    </svg>
+                  </TechIcon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Experience section */}
+        <section id="experience" className="py-20 px-6 md:px-12 lg:px-20">
+          <div className="max-w-5xl mx-auto">
+            <SectionHeading>Experience</SectionHeading>
+            
+            <div className="mt-12 space-y-8">
+              <ExperienceCard
+                position="Web Development Intern"
+                company="TechStartup Inc."
+                duration="May 2023 - Aug 2023"
+                location="Remote"
+                descriptions={[
+                  "Developed responsive web applications using React.js and Tailwind CSS",
+                  "Collaborated with design team to implement UI/UX improvements",
+                  "Participated in daily stand-up meetings and weekly code reviews"
+                ]}
+              />
+              
+              <ExperienceCard
+                position="Project Lead"
+                company="College Tech Club"
+                duration="Jan 2023 - Present"
+                location="Chennai, India"
+                descriptions={[
+                  "Leading a team of 5 developers to build a campus event management app",
+                  "Implementing CI/CD pipelines and code quality standards",
+                  "Organizing biweekly team meetings and technical workshops"
+                ]}
+              />
+            </div>
+          </div>
+        </section>
+        
+        {/* Projects section */}
+        <section id="projects" className="py-16 md:py-20 px-6 md:px-12 lg:px-20 bg-black/30">
+          <div className="max-w-5xl mx-auto">
+            <SectionHeading>Projects</SectionHeading>
+            
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <ProjectCard
+                title="E-Commerce Dashboard"
+                description="A comprehensive dashboard for e-commerce analytics with real-time data visualization."
+                techStack={["React", "Chart.js", "Firebase"]}
+                githubLink="https://github.com/sammy-314/ecommerce-dashboard"
+              />
+              
+              <ProjectCard
+                title="Task Manager API"
+                description="RESTful API for task management with user authentication and task categorization."
+                techStack={["Node.js", "Express", "MongoDB"]}
+                githubLink="https://github.com/sammy-314/task-manager-api"
+              />
+              
+              <ProjectCard
+                title="Weather App"
+                description="A weather forecasting application with location-based services and hourly updates."
+                techStack={["React Native", "OpenWeatherAPI", "Styled Components"]}
+                githubLink="https://github.com/sammy-314/weather-app"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Database section */}
+        <section id="database" className="py-20 px-6 md:px-12 lg:px-20">
+          <div className="max-w-5xl mx-auto">
+            <SectionHeading>Database</SectionHeading>
+            
+            <div className="mt-8 glass-card p-6 rounded-lg">
+              <h3 className="text-xl font-bold mb-4 text-neon-teal">Powered by Supabase</h3>
+              <p className="text-white/80 mb-6">
+                This portfolio is backed by Supabase - an open source Firebase alternative that provides all the backend 
+                services you need to build a product. From database to authentication, storage to serverless functions.
+              </p>
+              
+              <div className="flex flex-wrap gap-4 mt-6">
+                <div className="bg-white/10 p-4 rounded-lg flex-1 min-w-[250px]">
+                  <h4 className="font-bold mb-2">PostgreSQL Database</h4>
+                  <p className="text-sm text-white/70">
+                    Utilizing the power of PostgreSQL for data storage and management with Row Level Security.
+                  </p>
+                </div>
+                
+                <div className="bg-white/10 p-4 rounded-lg flex-1 min-w-[250px]">
+                  <h4 className="font-bold mb-2">Authentication</h4>
+                  <p className="text-sm text-white/70">
+                    Secure user authentication with multiple sign-in options and session management.
+                  </p>
+                </div>
+                
+                <div className="bg-white/10 p-4 rounded-lg flex-1 min-w-[250px]">
+                  <h4 className="font-bold mb-2">Storage</h4>
+                  <p className="text-sm text-white/70">
+                    File storage solution for managing user uploads and media content.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Contact section */}
+        <section id="contact" className="py-20 px-6 md:px-12 lg:px-20">
+          <div className="max-w-5xl mx-auto">
+            <SectionHeading>Get In Touch</SectionHeading>
+            
+            <div className="mt-12 grid md:grid-cols-2 gap-12 items-start">
+              <div>
+                <p className="text-white/80 mb-6">
+                  I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                </p>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <Mail className="text-neon-teal" size={20} />
+                    <span>samyakt6@gmail.com</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <Phone className="text-neon-teal" size={20} />
+                    <span>+91 123-456-7890</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <Github className="text-neon-teal" size={20} />
+                    <a 
+                      href="https://github.com/sammy-314" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-neon-teal transition-colors"
+                    >
+                      github.com/sammy-314
+                    </a>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <Linkedin className="text-neon-teal" size={20} />
+                    <a 
+                      href="https://www.linkedin.com/in/samyak-tripathi-97bab3251/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-neon-teal transition-colors"
+                    >
+                      linkedin.com/in/samyak-tripathi
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <ContactForm />
+            </div>
+          </div>
+        </section>
+        
+        {/* Footer */}
+        <footer className="py-8 px-6 md:px-12 lg:px-20 border-t border-white/10">
+          <div className="max-w-5xl mx-auto text-center text-white/50 text-sm">
+            <p>© {new Date().getFullYear()} Samyak Tripathi. All rights reserved.</p>
+            <p className="mt-2">Built with React, Tailwind CSS, and ❤️</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+  );
+};
+
+export default Index;
